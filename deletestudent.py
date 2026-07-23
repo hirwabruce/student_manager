@@ -4,7 +4,8 @@ def delete_student(student_name):
     for student in students_list:
 
         if student["name"].lower() == student_name.lower():
-            students_list.remove(student)
+            #students_list.remove(student)
+            student["status"] = "Inactive"  # Mark the student as inactive
             save_students()  # Save changes to data.txt
             print(f"Student '{student_name}' deleted successfully.")
             return
