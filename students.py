@@ -16,6 +16,7 @@ def add_student():
        student['id'] = student_id
        student['name'] = student_name
        student['grade'] = student_grade
+       student["status"]= "Active"
        students_list.append(student)
 
 def save_students():
@@ -25,7 +26,7 @@ def save_students():
         for student in students_list:
 
          file.write(
-    f"{student['id']},{student['name']},{student['grade']}\n"
+    f"{student['id']},{student['name']},{student['grade']},{student['status']}\n"
 )
 def load_students():
     students_list.clear()
@@ -35,12 +36,13 @@ def load_students():
 
             for line in file:
 
-                student_id, name, grade = line.strip().split(",")
+                student_id, name, grade, status = line.strip().split(",")
 
                 students_list.append({
                     "id": int(student_id),
                     "name": name,
-                    "grade": float(grade)
+                    "grade": float(grade),
+                    "status": status
                 })
 
     except FileNotFoundError:
