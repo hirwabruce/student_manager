@@ -10,13 +10,30 @@ def add_student():
        if student_grade < 0 or student_grade > 100:
          print("Grade must be between 0 and 100.")
          continue
-
+       def determine_letter_grade(grade):
+        if grade >= 90:
+            return 'A'
+        elif grade >= 80:
+            return 'B'
+        elif grade >= 70:
+            return 'C'
+        elif grade >= 60:
+            return 'D'
+        elif grade >= 50:
+            return 'E'
+        elif grade >= 40:
+            return 'S'
+        else:
+            return 'F'
+        
        student = dict()
        student_id = len(students_list) + 1
        student['id'] = student_id
        student['name'] = student_name
        student['grade'] = student_grade
+       student["letter_grade"] = determine_letter_grade(student_grade)
        student["status"]= "Active"
+       student["letter_grade"]
        students_list.append(student)
 
 def save_students():
@@ -26,7 +43,7 @@ def save_students():
         for student in students_list:
 
          file.write(
-    f"{student['id']},{student['name']},{student['grade']},{student['status']}\n"
+    f"{student['id']},{student['name']},{student['grade']},{student['letter_grade']},{student['status']}\n"
 )
 def load_students():
     students_list.clear()
@@ -36,12 +53,13 @@ def load_students():
 
             for line in file:
 
-                student_id, name, grade, status = line.strip().split(",")
+                student_id, name, grade, letter_grade, status = line.strip().split(",")
 
                 students_list.append({
                     "id": int(student_id),
                     "name": name,
                     "grade": float(grade),
+                    "letter_grade": letter_grade,
                     "status": status
                 })
 

@@ -12,5 +12,6 @@ def view_students():
             print(
                 #f"ID: {student['id']}, "
                 f"Name: {student['name']}, "
-                f"Grade: {student['grade']}"
-        )
+                f"Grade: {student['grade']}, "
+                
+            )
