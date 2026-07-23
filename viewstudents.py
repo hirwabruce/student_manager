@@ -8,8 +8,9 @@ def view_students():
 
     print("List of Students:")
     for student in students_list:
-        print(
-            #f"ID: {student['id']}, "
-            f"Name: {student['name']}, "
-            f"Grade: {student['grade']}"
+        if student["status"] == "Active":
+            print(
+                #f"ID: {student['id']}, "
+                f"Name: {student['name']}, "
+                f"Grade: {student['grade']}"
         )
