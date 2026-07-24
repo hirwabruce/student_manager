@@ -13,5 +13,5 @@ def view_students():
                 #f"ID: {student['id']}, "
                 f"Name: {student['name']}, "
                 f"Grade: {student['grade']}, "
-                
+                f"Letter Grade: {student['letter_grade']}, "
             )
