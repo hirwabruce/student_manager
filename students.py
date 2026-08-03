@@ -1,3 +1,5 @@
+from datetime import date, datetime
+
 students_list = []
 def add_student():
 
@@ -25,9 +27,15 @@ def add_student():
             return 'S'
         else:
             return 'F'
+       today = datetime.now().strftime("%Y%m%d")
+
+        # Count students created today
+       count = sum(student["id"].startswith(today) for student in students_list) + 1
+
         
+ 
        student = dict()
-       student_id = len(students_list) + 1
+       student_id = f"{today}-{count}"
        student['id'] = student_id
        student['name'] = student_name
        student['grade'] = student_grade
